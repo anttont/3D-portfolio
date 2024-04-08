@@ -17,6 +17,7 @@
     "maath": "^0.10.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-motion": "^0.5.2",
     "react-parallax-tilt": "^1.7.220",
     "react-router-dom": "^6.22.3",
     "react-tilt": "^1.0.2",
