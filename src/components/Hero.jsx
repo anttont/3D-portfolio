@@ -12,9 +12,9 @@ const Hero = () => {
             <div className='w-5 h-5 rounded-full bg-[#915eff]'/>
             <div className='w-1 sm:h-80 h-40 violet-gradient' />
           </div>
-          <div> <h1 className={`${styles.heroHeadText} text-white`}>
+          <div> <h1 className={`${styles.heroHeadText} text-black`}>
              Hi, I'm <span className='text-[#915eff]'>Anttoni</span></h1>
-             <p className={`${styles.heroSubText} mt-2 text-white-100`}>
+             <p className={`${styles.heroSubText} mt-2 text-black-100`}>
               I am a web-developer
              </p>
              </div>

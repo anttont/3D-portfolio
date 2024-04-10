@@ -1,25 +1,25 @@
 import React, { Suspense, useEffect, useState } from "react";
 import * as THREE from 'three';
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
+
+import { OrbitControls, Preload, useGLTF, Grid, Environment } from "@react-three/drei";
 
 import CanvasLoader from "../Loader";
 
 const Computers = ({ isMobile }) => {
-  const computer = useGLTF("./public/desktop_pc/scene.gltf");
-  //const computer = useGLTF("./public/laptop/scene.gltf");
+  
+  const computer = useGLTF("./public/laptop/scene.gltf");
+  
 
   return (
     <mesh>
-      <ambientLight intensity={1} />
-        <spotLight intensity={0.3} />
-        <directionalLight position={[-50, 0, -40]} intensity={0.7} />
-        <pointLight intensity={1} />
+      <directionalLight position={[5, 5, -2]} castShadow intensity={5} ></directionalLight>
+      
       <primitive
         object={computer.scene}
-        scale={isMobile ? 0.7 : 0.75}
-        position={isMobile ? [0, -3, -2.2] : [0, -3.25, -1.5]}
-        rotation={[-0.01, -0.2, -0.1]}
+        scale={isMobile ? 2 : 25}
+        position={[0, -3.8, 0]}
+        rotation={[0, 0, 0]}
       />
     </mesh>
   );
@@ -54,16 +54,23 @@ const ComputersCanvas = () => {
       frameloop='demand'
       shadows
       dpr={[1, 2]}
-      camera={{ position: [20, 3, 5], fov: 25 }}
+      camera={{ position: [16, 0, 10], fov: 35 }}
       gl={{ preserveDrawingBuffer: true }}
     >
       <Suspense fallback={<CanvasLoader />}>
         <OrbitControls
+          autoRotate
+          autoRotateSpeed={1}
           enableZoom={false}
           maxPolarAngle={Math.PI / 2}
           minPolarAngle={Math.PI / 2}
         />
         <Computers isMobile={isMobile} />
+        
+        <Grid renderOrder={-1} position={[0, -4, 0]}
+         infiniteGrid cellSize={0.6} cellThickness={0.2}
+          sectionSize={9.3} sectionThickness={1.5} sectionColor={[0.5, 0.5, 10]} fadeDistance={90} />
+  <Environment  preset="city" blur={10} />
       </Suspense>
 
       <Preload all />

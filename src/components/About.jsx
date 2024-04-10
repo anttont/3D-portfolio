@@ -18,7 +18,7 @@ const ServiceCard = ({index, title, icon}) => {
           max: 45,
           scale: 1,
           speed: 450
-        }} className='bg-tertiary rounded-[20px] py-5 px-12 min-h-[280px]
+        }} className='bg-slate-200 rounded-[20px] py-5 px-12 min-h-[280px]
          flex justify-evenly items-center flex-col'>
           <img src={icon} alt="title" className='w-16 h-16 object-contain'/>
           <h3 className='text-white text-[20px] font-bold text-center'>{title}</h3>
@@ -30,9 +30,9 @@ const ServiceCard = ({index, title, icon}) => {
 
 const About = () => {
   return (
-    <>
+    <div>
     <motion.div variants={textVariant()}>
-      <p className={styles.sectionSubText}>
+      <p className={`${styles.sectionSubText} text-black`}>
         Introduction
       </p>
       <h2 className={styles.sectionHeadText}>
@@ -40,7 +40,7 @@ const About = () => {
       </h2>
     </motion.div>
 
-    <motion.p className="mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]" 
+    <motion.p className="mt-4 text-black text-[17px] max-w-3xl leading-[30px]" 
     variants={fadeIn("", "", 0.1 ,1)}>
       I have experience in JavaScript, Java, React ThreeJS, Konva, Node.js, Im a quick learner and can. I have experience in 
       JavaScript, Java, React ThreeJS, Konva, Node.js, Im a quick learner and can. I have experience in JavaScript, Java, React ThreeJS, Konva, Node.js, Im a quick learner and can 
@@ -52,7 +52,7 @@ const About = () => {
         <ServiceCard key={service.title} index = {index} {...service} />
       ))}
     </div>
-    </>
+    </div>
   )
 }
 
