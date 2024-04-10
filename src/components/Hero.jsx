@@ -2,8 +2,12 @@ import React from 'react'
 import { motion } from "framer-motion"
 import  {styles } from  "../styles"
 import { ComputersCanvas } from './canvas'
+import { useLanguage } from '../LanguageContext';
 
 const Hero = () => {
+
+  const { language } = useLanguage(); // Get the selected language from the context
+
   return (
     <section className='relative w-full h-screen'>
         
@@ -29,9 +33,9 @@ const Hero = () => {
             <div className='w-1 sm:h-80 h-40 violet-gradient' />
           </div>
           <div> <h1 className={`text-black ${styles.heroHeadText}`}>
-             Hi, I'm <span className='text-[#915eff]'>Anttoni</span></h1>
+          {language === 'en' ? 'Hi, my name is' : 'Hei, nimeni on'} <span className='text-[#915eff]'>Anttoni</span></h1>
              <p className={`${styles.heroSubText} mt-2 text-black-100`}>
-              I am a web-developer
+             {language === 'en' ? 'Im a web-developer' : 'Olen web-kehittäjä'}
              </p>
              </div>
           </div>

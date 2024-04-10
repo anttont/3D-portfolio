@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { styles } from "../styles";
 import { navLinksEN, navLinksFI } from "../constants";
-import { logo, menu, close } from "../assets";
+import { logo, menu, close, en, fi } from "../assets";
 import { useLanguage } from '../LanguageContext';
 
 const Navbar = () => {
@@ -11,13 +11,14 @@ const Navbar = () => {
   const [active, setActive] = useState("");
   const [toggle, setToggle] = useState(false);
 
-  // Function to handle language change
-  const handleLanguageChange = (lang) => {
-    changeLanguage(lang); // Update the global language state
+  // Function to handle language change based on clicked flag
+  const handleLanguageChange = (newLang) => {
+    changeLanguage(newLang); // Update the global language state
   };
 
-  // Dynamically choose navigation links based on the selected language
-  const navLinks = language === 'fi' ? navLinksFI : navLinksEN;
+  // Define flag image based on selected language
+  const currentFlag = language === 'fi' ? fi : en;
+  const navLinks = language === 'fi' ? navLinksFI : navLinksEN
 
   return (
     <nav className={`${styles.paddingX} w-full flex items-center py-5 fixed top-0 z-20 bg-slate-500`}>
@@ -49,11 +50,13 @@ const Navbar = () => {
             </li>
           ))}
         </ul>
+        {/* Single Language Switcher */}
         <div className={"p-2 slate-500-gradient top-20 right-0 mx-4 my-2 min-w-[140px] z-10 rounded-xl"}>
-          {/* Language Switcher */}
-          <div>
-            <button className={`text-black font-medium cursor-pointer hover:text-white text-[18px] ${language === 'en' && 'font-bold'}`} onClick={() => handleLanguageChange("en")}>English &nbsp;</button>
-            <button className={`text-black font-medium cursor-pointer hover:text-white text-[18px] ${language === 'fi' && 'font-bold'}`} onClick={() => handleLanguageChange("fi")}>Finnish </button>
+          <div className='flex flex-row'>
+            <img src={currentFlag} alt="Current Language" className='w-8 h-8 object-contain cursor-pointer' onClick={() => handleLanguageChange(language === 'en' ? 'fi' : 'en')} />
+            <button className={`text-black font-medium cursor-pointer hover:text-white text-[18px]`} onClick={() => handleLanguageChange(language === 'en' ? 'fi' : 'en')}>
+              {language === 'en' ? 'English' : 'Finnish'}
+            </button>
           </div>
         </div>
         <div className='sm:hidden flex flex-1 justify-end items-center'>

@@ -38,10 +38,10 @@ const About = () => {
     <div>
       <motion.div variants={textVariant()}>
         <p className={`${styles.sectionSubText} text-black`}>
-          Introduction
+        {language === 'en' ? 'Introduction' : 'Esittely'}
         </p>
         <h2 className={styles.sectionHeadText}>
-          Overview
+        {language === 'en' ? 'Overview' : 'Tietoa minusta'}
         </h2>
       </motion.div>
 
