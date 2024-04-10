@@ -3,7 +3,6 @@ import * as THREE from 'three';
 import { Canvas } from "@react-three/fiber";
 
 import { OrbitControls, Preload, useGLTF, Grid, Environment } from "@react-three/drei";
-
 import CanvasLoader from "../Loader";
 
 const Computers = ({ isMobile }) => {
@@ -13,13 +12,17 @@ const Computers = ({ isMobile }) => {
 
   return (
     <mesh>
-      <directionalLight position={[5, 5, -2]} castShadow intensity={5} ></directionalLight>
+      <ambientLight intensity={0.7} />
+      <spotLight intensity={0.5} angle={0.1} penumbra={1} position={[10, 15, -5]} castShadow />
+      <Environment preset="city" blur={1} />
+      
+      
       
       <primitive
         object={computer.scene}
-        scale={isMobile ? 2 : 25}
+        scale={isMobile ? 15 : 25}
         position={[0, -3.8, 0]}
-        rotation={[0, 0, 0]}
+        />
       />
     </mesh>
   );
