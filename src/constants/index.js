@@ -60,7 +60,7 @@ import {
 
   const introductions = [
     {
-      fi:"Olen Anttoni ja olen 26-vuotias. Olen valmistut Itä-Suomen Yliopistosta Luonnontieteen kanditaatiksi tietojenkäsittely tieteestä. Etsin itselleni harjoittelupaikkaa jotta voisin valmistua maisteriksi.",
+      fi:"Olen Anttoni ja olen 26-vuotias. Olen valmistut Itä-Suomen Yliopistosta Luonnontieteen kanditaatiksi tietojenkäsittelytieteestä. Etsin itselleni harjoittelupaikkaa jotta voisin valmistua maisteriksi.",
       en: "I am Anttoni and I am 26 years old. I have graduated from University of Eastern Finland as a bachelor in computer science and I am looking for a internship to be able to graduate with a masters degree."
     }
   ]
