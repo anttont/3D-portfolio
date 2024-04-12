@@ -71,10 +71,12 @@ import {
     {
       title: "LinkedIN",
       icon: linkedin,
+      href: "https://www.linkedin.com/in/anttoni-tornikoski-0b18572b5/"
     },
     {
       title: "GitHub",
       icon: github,
+      href: "https://github.com/anttont"
     },
   ];
   

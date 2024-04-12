@@ -41,7 +41,7 @@ const Navbar = () => {
       className={`${
         styles.paddingX
       } w-full flex items-center py-5 fixed top-0 z-20 ${
-        scrolled ? "bg-tertiary" : "bg-transparent"
+        scrolled ? "bg-secondary" : "bg-transparent"
       }`}
     >
       <div className='w-full flex justify-between items-center max-w-7xl mx-auto'>
@@ -54,7 +54,7 @@ const Navbar = () => {
           }}
         >
           <img src={logo} alt='logo' className='w-9 h-9 object-contain' />
-          <p className='text-white text-[18px] font-bold cursor-pointer flex '>
+          <p className='text-black text-[18px] font-bold cursor-pointer flex '>
             Anttoni &nbsp;
             <span className='sm:block hidden md:block '> | Tornikoski </span>
           </p>
