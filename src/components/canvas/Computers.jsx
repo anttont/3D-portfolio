@@ -2,29 +2,36 @@ import React, { Suspense, useEffect, useState } from "react";
 import * as THREE from 'three';
 import { Canvas } from "@react-three/fiber";
 
-import { OrbitControls, Preload, useGLTF, Grid, Environment } from "@react-three/drei";
+import { OrbitControls, Preload, useGLTF, Grid, Environment, MeshReflectorMaterial } from "@react-three/drei";
 import CanvasLoader from "../Loader";
 
 const Computers = ({ isMobile }) => {
-  
   const computer = useGLTF("./public/laptop/scene.gltf");
   
-
   return (
-    <mesh>
-      <ambientLight intensity={0.7} />
-      <spotLight intensity={0.5} angle={0.1} penumbra={1} position={[10, 15, -5]} castShadow />
-      <Environment preset="city" blur={1} />
+    <group>
       
       
-      
+      {/* Add a reflective floor */}
+      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -5, 0]} receiveShadow>
+        <planeGeometry args={[100, 100]} />
+        <MeshReflectorMaterial 
+          depthWrite={true} 
+          reflectivity={0.3}
+          metalness={0.5}
+          roughness={0.4}
+          clearcoat={0.5}
+          clearcoatRoughness={0.2}
+        />
+      </mesh>
+
       <primitive
         object={computer.scene}
         scale={isMobile ? 15 : 25}
         position={[0, -3.8, 0]}
-        />
-      
-    </mesh>
+        castShadow // Enable shadow casting for the model
+      />
+    </group>
   );
 };
 
@@ -63,17 +70,14 @@ const ComputersCanvas = () => {
       <Suspense fallback={<CanvasLoader />}>
         <OrbitControls
           autoRotate
-          autoRotateSpeed={1}
           enableZoom={false}
           maxPolarAngle={Math.PI / 2}
           minPolarAngle={Math.PI / 2}
         />
         <Computers isMobile={isMobile} />
+
         
-        <Grid renderOrder={-1} position={[0, -4, 0]}
-         infiniteGrid cellSize={0.6} cellThickness={0.2}
-          sectionSize={9.3} sectionThickness={1.5} sectionColor={[0.5, 0.5, 10]} fadeDistance={90} />
-  <Environment  preset="city" blur={10} />
+  <Environment preset="forest" />
       </Suspense>
 
       <Preload all />

@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unknown-property */
 import React from 'react';
 import Tilt from "react-parallax-tilt";
 import { motion } from "framer-motion";
@@ -8,7 +9,7 @@ import { fadeIn, textVariant } from "../utils/motion";
 import { SectionWrapper } from '../hoc/';
 
 const ServiceCard = ({ index, title, icon, href }) => {
-  console.log("href", href)
+  
   return (
     <Tilt className='xs:w-[250px] w-full' >
       <a href={href}>
@@ -32,10 +33,7 @@ const ServiceCard = ({ index, title, icon, href }) => {
 
 const About = () => {
   const { language } = useLanguage(); // Get the selected language from the context
-
   const introduction = introductions[0][language];
-  console.log(introduction, language)
-  
 
   return (
     <div>

@@ -3,6 +3,7 @@ import { motion } from "framer-motion"
 import  {styles } from  "../styles"
 import { ComputersCanvas } from './canvas'
 import { useLanguage } from '../LanguageContext';
+import { About, Contact, Experience, Feedbacks, Navbar, Tech, Works, StarsCanvas } from "../components";
 
 const Hero = () => {
 
@@ -10,7 +11,7 @@ const Hero = () => {
 
   return (
     <section className='relative w-full h-screen'>
-        
+          
           <ComputersCanvas />
           <div className='absolute xs:bottom-10 bottom-32 w-full flex justify-center
            items-center '><a href="#about"> <div className='w-[35px] h-[64px] rounded-3xl border-4
@@ -35,10 +36,11 @@ const Hero = () => {
           <div> <h1 className={`text-black ${styles.heroHeadText}`}>
           {language === 'en' ? 'Hi, my name is' : 'Hei, nimeni on'} <span className='text-[#915eff]'>Anttoni</span></h1>
              <p className={`${styles.heroSubText} mt-2 text-black-100`}>
-             {language === 'en' ? 'Im a web-developer' : 'Olen web-kehittäjä'}
+             {language === 'en' ? 'Im a software-developer' : 'Olen ohjelmisto-kehittäjä'}
              </p>
              </div>
           </div>
+          
     </section>
   )
 }
