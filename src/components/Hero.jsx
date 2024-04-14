@@ -33,10 +33,10 @@ const Hero = () => {
             <div className='w-5 h-5 rounded-full bg-[#915eff]'/>
             <div className='w-1 sm:h-80 h-40 violet-gradient' />
           </div>
-          <div> <h1 className={`text-black ${styles.heroHeadText}`}>
-          {language === 'en' ? 'Hi, my name is' : 'Hei, nimeni on'} <span className='text-[#915eff]'>Anttoni</span></h1>
-             <p className={`${styles.heroSubText} mt-2 text-black-100`}>
-             {language === 'en' ? 'Im a software-developer' : 'Olen ohjelmisto-kehittäjä'}
+          <div> <h1 className={`text-white ${styles.heroHeadText}`}>
+          {language === 'en' ? 'Hi, my name is' : 'Hei, nimeni on'} </h1>
+             <p className={`${styles.heroSubText} mt-2 text-white-100`}>
+            {/* {language === 'en' ? 'Im a software-developer' : 'Olen ohjelmisto-kehittäjä'} */}
              </p>
              </div>
           </div>

@@ -1,39 +1,55 @@
 import React, { Suspense, useEffect, useState } from "react";
 import * as THREE from 'three';
-import { Canvas } from "@react-three/fiber";
+import { Canvas, useFrame } from "@react-three/fiber";
 
-import { OrbitControls, Preload, useGLTF, Grid, Environment, MeshReflectorMaterial } from "@react-three/drei";
+import { OrbitControls, Preload, useTexture, Reflector, Text, useGLTF, Grid, Environment, MeshReflectorMaterial } from "@react-three/drei";
 import CanvasLoader from "../Loader";
 
-const Computers = ({ isMobile }) => {
-  const computer = useGLTF("./public/laptop/scene.gltf");
-  
+const VideoText = (props) =>{
+  const [video] = useState(() => Object.assign(document.createElement('video'), { src: '/Portfolio3.mp4', crossOrigin: 'Anonymous', loop: true, muted: true }))
+  useEffect(() => void video.play(), [video])
   return (
-    <group>
-      
-      
-      {/* Add a reflective floor */}
-      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -5, 0]} receiveShadow>
-        <planeGeometry args={[100, 100]} />
-        <MeshReflectorMaterial 
-          depthWrite={true} 
-          reflectivity={0.3}
-          metalness={0.5}
-          roughness={0.4}
-          clearcoat={0.5}
-          clearcoatRoughness={0.2}
-        />
-      </mesh>
+    <Text fontSize={1} font="/Inter-Bold.woff" letterSpacing={-0.06} {...props}>
+      Anttoni
+      <meshBasicMaterial toneMapped={false}>
+        <videoTexture attach="map" args={[video]} encoding={THREE.sRGBEncoding} />
+      </meshBasicMaterial>
+    </Text>
+  )
+}
 
+const Computers = ({ isMobile }) => {
+  const computer = useGLTF("./laptop/scene.gltf");
+
+  return (
+    <mesh>
+      <pointLight intensity={2.5} position={[-1, 1, 1.7,]} />
       <primitive
         object={computer.scene}
-        scale={isMobile ? 15 : 25}
-        position={[0, -3.8, 0]}
-        castShadow // Enable shadow casting for the model
+        scale={isMobile ? 2 : 2}
+        position={isMobile ? [-1.5, 0.009, 2] : [-1.5, 0.009, 2]}
+        rotation={[0, 1, 0]}
       />
-    </group>
+    </mesh>
   );
 };
+
+const Ground = () => {
+  const [floor, normal] = useTexture(['./SurfaceImperfections003_1K_var1.jpg', './SurfaceImperfections003_1K_Normal.jpg'])
+  return (
+    <Reflector blur={[400, 100]} resolution={512} args={[10, 10]} mirror={0.5} mixBlur={6} mixStrength={3.5} rotation={[-Math.PI / 2, 0, Math.PI / 2]}>
+      {(Material, props) => <Material color="#808080" metalness={0.01} roughnessMap={floor} normalMap={normal} normalScale={[2, 2]} {...props} />}
+    </Reflector>
+  )
+}
+
+const Intro = () => {
+  const [vec] = useState(() => new THREE.Vector3())
+  return useFrame((state) => {
+    state.camera.position.lerp(vec.set(state.pointer.x * 0.1, 3 + state.pointer.y * 0.1, 14), 0.1)
+    state.camera.lookAt(0, 0, -2)
+  })
+}
 
 const ComputersCanvas = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -60,27 +76,21 @@ const ComputersCanvas = () => {
   }, []);
 
   return (
-    <Canvas
-      frameloop='demand'
-      shadows
-      dpr={[1, 2]}
-      camera={{ position: [16, 0, 10], fov: 35 }}
-      gl={{ preserveDrawingBuffer: true }}
-    >
-      <Suspense fallback={<CanvasLoader />}>
-        <OrbitControls
-          autoRotate
-          enableZoom={false}
-          maxPolarAngle={Math.PI / 2}
-          minPolarAngle={Math.PI / 2}
-        />
-        <Computers isMobile={isMobile} />
-
+    <Canvas camera={{ position: [0, 0, 0], fov: 10 }}>
+      <color attach="background" args={['black']} />
+      <fog attach="fog" args={['black', 15, 20]} />
+      <Suspense fallback={null}>
+        <group position={[0, 0, 0]}>
+          <Computers rotation={[0, Math.PI - 0.4, 0]} position={[-1.2, 0, 0.6]} />
+          <VideoText position={[0, 0.45, 0]} />
+          <Ground />
+        </group>
+        <ambientLight intensity={0.5} />
+        <spotLight position={[0, 10, 0]} intensity={0.3} />
+        <directionalLight position={[-50, 0, -40]} intensity={0.7} />
+        <Intro />
         
-  <Environment preset="forest" />
       </Suspense>
-
-      <Preload all />
     </Canvas>
   );
 };
