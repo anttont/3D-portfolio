@@ -75,11 +75,11 @@ const handleSubmit = (e) => {
 
 
   return (
-    <div className='xl:mt-12 xl:flex-row flex-col-reverse flex gap-10 overflow-hidden'>
-      <motion.div variants={slideIn("left", "tween", 0.2, 1)} className='flex-0.75 bg-[#915eff] p-8 rounded-2xl'>
-        
-        <p className={styles.sectionSubText}>{language === 'en' ? 'Get in touch' : 'Ota yhteyttä'}</p>
-        <h3 className={styles.sectionHeadText}>{language === 'en' ? 'Contact' : ' Lähetä viesti'}</h3>
+    
+    <div className='xl:mt-12 xl:flex-row flex-col-reverse gap-10 overflow-hidden'>
+      <motion.div variants={slideIn("left", "tween", 0.2, 1)} className='w-full green-pink-gradient p-[2px]  p-8 rounded-2xl'>
+        <div className='bg-black rounded-[20px] py-5 px-12 min-h-[280px] flex flex-col'><p className={`${styles.sectionHeadText} text-white`}>{language === 'en' ? 'Get in touch' : 'Ota yhteyttä'}</p>
+        <h3 className={`${styles.sectionSubText} text-white`}>{language === 'en' ? 'Contact' : ' Lähetä viesti'}</h3>
 
         <form 
         ref={formRef}
@@ -124,14 +124,12 @@ const handleSubmit = (e) => {
 
           <button type="submit" className='bg-tertiary py-3 px-8 outline-none w-fit text-fit
            font-bold shadow-md shadow-primary rounded-xl'>{loading ? 'Sending...': 'Send' }</button>
-        </form>
+        </form></div>
+        
       </motion.div>
 
 
-      <motion.div variants={slideIn("right", "tween", 0.2, 1)} 
-      className='xl:flex-1 xl:h-auto md:h-[550px] h-[350px]'>
-        <EarthCanvas />
-    </motion.div>
+      
     </div>
   )
 }

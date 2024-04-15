@@ -25,6 +25,10 @@ import {
     threejs,
     linkedin,
     github,
+    python,
+    java,
+    konva,
+    threedportfolio
   } from "../assets";
   
   export const navLinksEN = [
@@ -61,7 +65,7 @@ import {
   const introductions = [
     {
       fi:"Olen Anttoni ja olen 26-vuotias. Olen valmistut Itä-Suomen Yliopistosta Luonnontieteen kanditaatiksi tietojenkäsittelytieteestä. Etsin itselleni harjoittelupaikkaa jotta voisin valmistua maisteriksi.",
-      en: "I am Anttoni and I am 26 years old. I have graduated from University of Eastern Finland as a bachelor in computer science and I am looking for a internship to be able to graduate with a masters degree."
+      en: "I'm Anttoni, a recent graduate from the University of Eastern Finland with a Bachelor's degree in Computer Science. Proficient in programming languages like JavaScript, Java and Python.  I'm passionate about web-development and eager to leverage my skills in a challenging internship in software development. Obtaining an internship would allow me to gain practical experience and contribute to a real-world project and I would be able to aquire my Master's degree."
     }
   ]
 
@@ -102,10 +106,6 @@ import {
       icon: reactjs,
     },
     {
-      name: "Redux Toolkit",
-      icon: redux,
-    },
-    {
       name: "Tailwind CSS",
       icon: tailwind,
     },
@@ -125,14 +125,20 @@ import {
       name: "git",
       icon: git,
     },
+    
     {
-      name: "figma",
-      icon: figma,
+      name: "python",
+      icon: python,
     },
     {
-      name: "docker",
-      icon: docker,
+      name: "java",
+      icon: java,
     },
+    {
+      name: "konva",
+      icon: konva,
+    },
+    
   ];
   
   const experiences = [
@@ -240,47 +246,30 @@ import {
       source_code_link: "https://github.com/",
     },
     {
-      name: "Job IT",
-      description:
-        "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
+      name: "3D-portfolio",
+      descriptionEN:
+        "I wanted to learn ThreeJS and making a portfolio using it seemed like the best option to gain knowledge of the library and simultaneously gain experience using React",
+        descriptionFI:
+        "Sama suomeksi",
       tags: [
         {
           name: "react",
           color: "blue-text-gradient",
         },
         {
-          name: "restapi",
+          name: "ThreeJS",
           color: "green-text-gradient",
         },
         {
-          name: "scss",
+          name: "tailwind",
           color: "pink-text-gradient",
         },
       ],
-      image: jobit,
+      image: threedportfolio,
       source_code_link: "https://github.com/",
-    },
-    {
-      name: "Trip Guide",
-      description:
-        "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
-      tags: [
-        {
-          name: "nextjs",
-          color: "blue-text-gradient",
-        },
-        {
-          name: "supabase",
-          color: "green-text-gradient",
-        },
-        {
-          name: "css",
-          color: "pink-text-gradient",
-        },
-      ],
-      image: tripguide,
-      source_code_link: "https://github.com/",
-    },
+    }
+    
+    
   ];
   
   export { services, technologies, experiences, testimonials, projects, introductions };

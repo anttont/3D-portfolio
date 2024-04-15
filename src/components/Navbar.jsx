@@ -41,7 +41,7 @@ const Navbar = () => {
       className={`${
         styles.paddingX
       } w-full flex items-center py-5 fixed top-0 z-20 ${
-        scrolled ? "bg-[#915eff]" : "bg-transparent"
+        scrolled ? "bg-black" : "bg-transparent"
       }`}
     >
       <div className='w-full flex justify-between items-center max-w-7xl mx-auto'>
@@ -54,7 +54,7 @@ const Navbar = () => {
           }}
         >
           <img src={logo} alt='logo' className='w-9 h-9 object-contain' />
-          <p className='text-black text-[18px] font-bold cursor-pointer flex '>
+          <p className='text-white text-[18px] font-bold cursor-pointer flex '>
             Anttoni &nbsp;
             <span className='sm:block hidden md:block '> | Tornikoski </span>
           </p>
@@ -66,8 +66,8 @@ const Navbar = () => {
             <li
               key={nav.id}
               className={`${
-                active === nav.title ? "text-slate" : "text-black"
-              } hover:text-slate text-[18px] font-medium cursor-pointer`}
+                active === nav.title ? "text-slate" : "text-white"
+              } hover:text-[#915eff] text-[18px] font-medium cursor-pointer`}
               onClick={() => setActive(nav.title)}
             >
               <a href={`#${nav.id}`}>{nav.title}</a>
@@ -76,7 +76,7 @@ const Navbar = () => {
           ))}
           <div className='flex flex-row'>
             <img src={currentFlag} alt="Current Language" className='w-8 h-8 object-contain cursor-pointer' onClick={() => handleLanguageChange(language === 'en' ? 'fi' : 'en')} />
-            <button className={`text-black font-medium cursor-pointer hover:text-white text-[18px]`} onClick={() => handleLanguageChange(language === 'en' ? 'fi' : 'en')}>
+            <button className={`text-white font-medium cursor-pointer hover:text-[#915eff] text-[18px]`} onClick={() => handleLanguageChange(language === 'en' ? 'fi' : 'en')}>
               {language === 'en' ? 'English' : 'Finnish'}
             </button>
           </div>
@@ -98,7 +98,7 @@ const Navbar = () => {
             <ul className='list-none flex justify-end items-start flex-1 flex-col gap-4'>
             <div className='flex flex-row'>
             <img src={currentFlag} alt="Current Language" className='w-8 h-8 object-contain cursor-pointer' onClick={() => handleLanguageChange(language === 'en' ? 'fi' : 'en')} />
-            <button className={`text-black font-medium cursor-pointer hover:text-white text-[16px]`} onClick={() => handleLanguageChange(language === 'en' ? 'fi' : 'en')}>
+            <button className={`text-white font-medium cursor-pointer hover:text-[#915eff] text-[16px]`} onClick={() => handleLanguageChange(language === 'en' ? 'fi' : 'en')}>
               {language === 'en' ? 'English' : 'Finnish'}
             </button>
           </div>

@@ -6,8 +6,9 @@ import { github } from '../assets'
 import { SectionWrapper } from '../hoc'
 import { projects } from '../constants'
 import { fadeIn, textVariant } from '../utils/motion'
+import { useLanguage } from '../LanguageContext';
 
-const ProjectCard = ({index, name, description, tags, image, source_code_link}) => {
+const ProjectCard = ({index, name, descriptionEN, tags, image, source_code_link, language}) => {
       return(
         <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
           <Tilt options={{
@@ -55,6 +56,10 @@ const ProjectCard = ({index, name, description, tags, image, source_code_link}) 
 }
 
 const Works = () => {
+
+
+  const { language } = useLanguage();
+
   return (
     <>
        <motion.div variants={textVariant()}>

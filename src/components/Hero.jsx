@@ -28,16 +28,15 @@ const Hero = () => {
             </a>
           </div>
           <div className={`${styles.paddingX} absolute inset-0 top-[122px]
-         max-w-7xl mx-auto flex flex-row items-start gap-5`}>
-          <div className='flex flex-col justify-center items-center mt-5'>
-            <div className='w-5 h-5 rounded-full bg-[#915eff]'/>
-            <div className='w-1 sm:h-80 h-40 violet-gradient' />
+         max-w-7xl mx-auto flex flex-col items-start`}>
+          <div className='flex flex-row justify-center items-center mt-5'>
+
           </div>
           <div> <h1 className={`text-white ${styles.heroHeadText}`}>
           {language === 'en' ? 'Hi, my name is' : 'Hei, nimeni on'} </h1>
-             <p className={`${styles.heroSubText} mt-2 text-white-100`}>
-            {/* {language === 'en' ? 'Im a software-developer' : 'Olen ohjelmisto-kehittäjä'} */}
-             </p>
+             {/*<p className={`${styles.heroSubText} pt-30 text-white-100`}>
+             {language === 'en' ? 'Im a software-developer' : 'Olen ohjelmisto-kehittäjä'} 
+                </p> */}
              </div>
           </div>
           
