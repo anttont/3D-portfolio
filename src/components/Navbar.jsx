@@ -105,13 +105,8 @@ const Navbar = () => {
               {navLinks.map((nav) => (
                 <li
                   key={nav.id}
-                  className={`font-poppins font-medium cursor-pointer text-[16px] ${
-                    active === nav.title ? "text-white" : "text-secondary"
-                  }`}
-                  onClick={() => {
-                    setToggle(!toggle);
-                    setActive(nav.title);
-                  }}
+                  className={`hover:text-[#915eff] text-[18px] font-medium cursor-pointer`}
+                  
                 >
                   <a href={`#${nav.id}`}>{nav.title}</a>
                   <div className={"p-2 slate-500-gradient top-20 right-0 mx-4 my-2 min-w-[140px] z-10 rounded-xl"}>

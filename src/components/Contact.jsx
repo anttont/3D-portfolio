@@ -36,8 +36,20 @@ const handleChange = (e) => {
 
 const handleSubmit = (e) => {
   e.preventDefault();
-  setLoading(true);
 
+ 
+ if (!form.name || !form.email || !form.message) {
+  if(language === "en"){
+    alert("Please fill in all fields");
+  }
+  else{
+    alert("Ole hyvä ja täytä kaikki kentät");
+  }
+  
+  return;
+}
+
+  setLoading(true);
   emailjs
     .send(
       import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
@@ -54,7 +66,12 @@ const handleSubmit = (e) => {
     .then(
       () => {
         setLoading(false);
-        alert("Thank you. I will get back to you as soon as possible.");
+        if(language === "en"){
+          alert("Thank you. I will get to you as soon as possible.");
+        }
+        else{
+          alert("Kiitos. Otan teihin yhteyttä mahdollisimman pian.");
+        }
 
         setForm({
           name: "",
@@ -66,7 +83,12 @@ const handleSubmit = (e) => {
         setLoading(false);
         console.error(error);
 
-        alert("Ahh, something went wrong. Please try again.");
+        if(language === "en"){
+          alert("Something went wrong :(");
+        }
+        else{
+          alert("Jotain meni vikaan :(");
+        }
       }
     );
 };
@@ -104,7 +126,7 @@ const handleSubmit = (e) => {
           name="email"
           value={form.email}
           onChange={handleChange}
-          placeholder={language === 'en' ? 'Whats your email' : 'Kerro sähköpostisi'}
+          placeholder={language === 'en' ? 'Whats your email' : 'Mikä on sähköpostiosoitteesi?'}
           className='bg-tertiary py-4 px-6 
           placeholder:text-secondary text-white rounded-lg
            outlined-none border-none font-medium'/>

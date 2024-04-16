@@ -77,7 +77,7 @@ const Works = () => {
       <div className='w-full flex'>
         <motion.p variants={fadeIn("", "", 0.1, 1)} 
         className='mt-3 text-secondary text-[17px] max-w-3xl leading-[30px]'>
-          {language === 'en' ? 'Projects I have made to gain experience during my degree.' : 'Projekteja, joita olen tehnyt kerryttääkseni kokemusta tutkintoni aikana'}. 
+          {language === 'en' ? 'Projects I have made during my degree.' : 'Itsenäisiä projekteja, joita olen tehnyt tutkintoni aikana.'} 
         </motion.p>
       </div>
 
@@ -93,4 +93,4 @@ const Works = () => {
   )
 }
 
-export default SectionWrapper(Works, "")
+export default SectionWrapper(Works, "projects")
