@@ -64,8 +64,8 @@ import {
 
   const introductions = [
     {
-      fi:"Olen Anttoni ja olen 26-vuotias. Olen valmistut Itä-Suomen Yliopistosta Luonnontieteen kanditaatiksi tietojenkäsittelytieteestä. Etsin itselleni harjoittelupaikkaa jotta voisin valmistua maisteriksi.",
-      en: "I'm Anttoni, a recent graduate from the University of Eastern Finland with a Bachelor's degree in Computer Science. Proficient in programming languages like JavaScript, Java and Python.  I'm passionate about web-development and eager to leverage my skills in a challenging internship in software development. Obtaining an internship would allow me to gain practical experience and contribute to a real-world project and I would be able to aquire my Master's degree."
+      fi:"Hei, olen Anttoni, vastavalmistunut Itä-Suomen yliopistosta tietojenkäsittelytieteen kandidaatin tutkinnolla. Hallitsen ohjelmointikielet kuten, JavaScript, Java ja Python. Nautin web-kehityksestä ja haluan hyödyntää taitojani haastavassa harjoittelupaikassa ohjelmistokehityksessä. Harjoittelupaikan saaminen antaisi minulle mahdollisuuden saada käytännön kokemusta ja osallistua todellisiin projekteihin, ja samalla voisin suorittaa maisterintutkintoni loppuun. Minuun voit ottaa yhteyttä sähköpostiosoitteeestani: anttoni.tornikoski@gmail.com tai alhaalta löytyvällä lomakkeella.",
+      en: "I'm Anttoni, a recent graduate from the University of Eastern Finland with a Bachelor's degree in Computer Science. Proficient in programming languages like JavaScript, Java and Python.  I'm passionate about web-development and eager to leverage my skills in a challenging internship in software development. Obtaining an internship would allow me to gain practical experience and contribute to a real-world project and I would be able to aquire my Master's degree. You can contact me with my email: anttoni.tornikoski@gmail.com or with the contact form below."
     }
   ]
 

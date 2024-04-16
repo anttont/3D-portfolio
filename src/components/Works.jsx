@@ -66,19 +66,18 @@ const Works = () => {
   return (
     <>
        <motion.div variants={textVariant()}>
-        <p className={`${styles.sectionSubText} text-center`}>
-          My projects
+        <p className={`${styles.sectionSubText}  text-white`}>
+        {language === 'en' ? 'My projects' : 'Projektini'}
         </p>
-        <h2 className={`${styles.sectionHeadText} text-center`}>
-          Projects
+        <h2 className={`${styles.sectionHeadText}  text-white`}>
+        {language === 'en' ? 'Projects' : 'Projektit'}
         </h2>
       </motion.div>
 
       <div className='w-full flex'>
         <motion.p variants={fadeIn("", "", 0.1, 1)} 
         className='mt-3 text-secondary text-[17px] max-w-3xl leading-[30px]'>
-          Here are some projects I have worked on recently during my university courses or on my freetime.
-          The projects reflect on the technologies that I have used and learned during my compurer science degree. 
+          {language === 'en' ? 'Projects I have made to gain experience during my degree.' : 'Projekteja, joita olen tehnyt kerryttääkseni kokemusta tutkintoni aikana'}. 
         </motion.p>
       </div>
 

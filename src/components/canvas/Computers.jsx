@@ -5,11 +5,11 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, Preload, useTexture, Reflector, Text, useGLTF, Grid, Environment, MeshReflectorMaterial } from "@react-three/drei";
 import CanvasLoader from "../Loader";
 
-const VideoText = (props) =>{
+const VideoText = ({ isMobile, ...props }) => {
   const [video] = useState(() => Object.assign(document.createElement('video'), { src: '/Portfolio3.mp4', crossOrigin: 'Anonymous', loop: true, muted: true }))
   useEffect(() => void video.play(), [video])
   return (
-    <Text fontSize={1} font="/Inter-Bold.woff" letterSpacing={-0.06} {...props}>
+    <Text position={isMobile ? [0, 0.15, 0] : [0, 0.45, 0]} scale={isMobile ? 0.3 : 1} font="/Inter-Bold.woff" letterSpacing={-0.06} {...props}>
       Anttoni
       <meshBasicMaterial toneMapped={false}>
         <videoTexture attach="map" args={[video]} encoding={THREE.sRGBEncoding} />
@@ -18,16 +18,18 @@ const VideoText = (props) =>{
   )
 }
 
+
+
 const Computers = ({ isMobile }) => {
   const computer = useGLTF("./laptop/scene.gltf");
-
+  
   return (
     <mesh>
-      <pointLight intensity={2.5} position={[0, 1, 1.7,]} />
+      <pointLight intensity={2.5} position={isMobile ? [-0.2, 1, 1] : [0, 1, 1.7,]} />
       <primitive
         object={computer.scene}
-        scale={isMobile ? 2 : 2}
-        position={isMobile ? [-1.5, 0.009, 2] : [-1.5, 0.009, 2]}
+        scale={isMobile ? 1.3 : 2}
+        position={isMobile ? [-0.3, 0.009, 1.4] : [-1.5, 0.009, 2]}
         rotation={[0, 1, 0]}
       />
     </mesh>
@@ -81,8 +83,8 @@ const ComputersCanvas = () => {
       <fog attach="fog" args={['black', 15, 20]} />
       <Suspense fallback={null}>
         <group position={[0, 0, 0]}>
-          <Computers rotation={[0, Math.PI - 0.4, 0]} position={[-1.2, 0, 0.6]} />
-          <VideoText position={[0, 0.45, 0]} />
+          <Computers rotation={[0, Math.PI - 0.4, 0]} position={[-1.2, 0, 0.6]} isMobile={isMobile} />
+          <VideoText isMobile={isMobile} />
           <Ground />
         </group>
         <ambientLight intensity={0.5} />
