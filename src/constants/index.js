@@ -224,33 +224,13 @@ import {
   ];
   
   const projects = [
-    {
-      name: "Car Rent",
-      description:
-        "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
-      tags: [
-        {
-          name: "react",
-          color: "blue-text-gradient",
-        },
-        {
-          name: "mongodb",
-          color: "green-text-gradient",
-        },
-        {
-          name: "tailwind",
-          color: "pink-text-gradient",
-        },
-      ],
-      image: carrent,
-      source_code_link: "https://github.com/",
-    },
+    
     {
       name: "3D-portfolio",
       descriptionEN:
-        "I wanted to learn ThreeJS and making a portfolio using it seemed like the best option to gain knowledge of the library and simultaneously gain experience using React",
+        "I wanted to learn ThreeJS and making a portfolio using it seemed like the best option to gain knowledge of the library and simultaneously gain experience using React and Tailwind",
         descriptionFI:
-        "Sama suomeksi",
+        "Halusin opetalla käyttämään ThreeJS kirjastoa, joten portfolion tekeminen sitä käyttäen tuntui sopivalta vaihtoehdolta. Portfoliota tehdessäni opin käyttämään ThreeJS kirjastoa, sekä sain ylimääräistä kokemusta Reactin ja Tailwindin käytöstä.",
       tags: [
         {
           name: "react",
