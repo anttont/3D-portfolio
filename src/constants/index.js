@@ -246,7 +246,7 @@ import {
         },
       ],
       image: threedportfolio,
-      source_code_link: "https://github.com/",
+      source_code_link: "https://github.com/anttont/3D-portfolio/",
     }
     
     
