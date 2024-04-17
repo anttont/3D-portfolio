@@ -13,14 +13,14 @@ const App = () => {
         <div className=' bg-slate-150 bg-no-repeat bg-center'>
           <Navbar />
           <Hero />
-          
+          </div>
         <About />
         <Tech />
         <Works />
         <div className='relative z-0'>
           <Contact />
          <StarsCanvas /> 
-        </div>
+        
         
         </div>
       </div>

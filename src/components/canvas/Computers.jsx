@@ -2,7 +2,8 @@ import React, { Suspense, useEffect, useState } from "react";
 import * as THREE from 'three';
 import { Canvas, useFrame } from "@react-three/fiber";
 
-import { OrbitControls, Preload, useTexture, Reflector, Text, useGLTF, Grid, Environment, MeshReflectorMaterial } from "@react-three/drei";
+import { OrbitControls, Preload, useTexture, Reflector, Text, useGLTF} from "@react-three/drei";
+
 import CanvasLoader from "../Loader";
 
 const VideoText = ({ isMobile, ...props }) => {
@@ -17,8 +18,6 @@ const VideoText = ({ isMobile, ...props }) => {
     </Text>
   )
 }
-
-
 
 const Computers = ({ isMobile }) => {
   const computer = useGLTF("./laptop/scene.gltf");
@@ -78,22 +77,28 @@ const ComputersCanvas = () => {
   }, []);
 
   return (
-    <Canvas camera={{ position: [0, 0, 0], fov: 10 }}>
-      <color attach="background" args={['black']} />
+    
+    <Canvas 
+      camera={{ position: [0, 0, 0], fov: 10 }}
+      gl={{ preserveDrawingBuffer: true}}
+       >
+      <Suspense fallback={<CanvasLoader />}>
+      
       <fog attach="fog" args={['black', 15, 20]} />
-      <Suspense fallback={null}>
-        <group position={[0, 0, 0]}>
+      <group position={[0, 0, 0]}>
           <Computers rotation={[0, Math.PI - 0.4, 0]} position={[-1.2, 0, 0.6]} isMobile={isMobile} />
           <VideoText isMobile={isMobile} />
           <Ground />
         </group>
-        <ambientLight intensity={0.5} />
-        <spotLight position={[0, 10, 0]} intensity={0.3} />
-        <directionalLight position={[-50, 0, -40]} intensity={0.7} />
-        <Intro />
+        <ambientLight intensity={0.3} />
         
-      </Suspense>
+      <Intro />
+        
+        </Suspense >
+      <Preload all />
+      
     </Canvas>
+    
   );
 };
 

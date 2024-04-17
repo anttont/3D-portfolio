@@ -10,9 +10,23 @@ const Hero = () => {
   const { language } = useLanguage(); // Get the selected language from the context
 
   return (
-    <section className='relative w-full h-screen'>
+    <section className='relative w-full h-screen mx-auto'>
           
+          
+          <div className={`${styles.paddingX} absolute inset-0 top-[122px]
+         max-w-7xl mx-auto flex flex-col items-start`}>
+          <div className='flex flex-row justify-center items-center mt-5'>
+            
+          </div>
+          <div> <h1 className={`text-white ${styles.heroHeadText}`}>
+          {language === 'en' ? 'Hi, my name is' : 'Hei, nimeni on'} </h1>
+             {/*<p className={`${styles.heroSubText} pt-30 text-white-100`}>
+             {language === 'en' ? 'Im a software-developer' : 'Olen ohjelmisto-kehittäjä'} 
+                </p> */}
+             </div>
+          </div>
           <ComputersCanvas />
+
           <div className='absolute xs:bottom-10 bottom-32 w-full flex justify-center
            items-center '><a href="#about"> <div className='w-[35px] h-[64px] rounded-3xl border-4
             border-secondary flex justify-center items-start p-2'>
@@ -27,19 +41,6 @@ const Hero = () => {
               </div>
             </a>
           </div>
-          <div className={`${styles.paddingX} absolute inset-0 top-[122px]
-         max-w-7xl mx-auto flex flex-col items-start`}>
-          <div className='flex flex-row justify-center items-center mt-5'>
-
-          </div>
-          <div> <h1 className={`text-white ${styles.heroHeadText}`}>
-          {language === 'en' ? 'Hi, my name is' : 'Hei, nimeni on'} </h1>
-             {/*<p className={`${styles.heroSubText} pt-30 text-white-100`}>
-             {language === 'en' ? 'Im a software-developer' : 'Olen ohjelmisto-kehittäjä'} 
-                </p> */}
-             </div>
-          </div>
-          
     </section>
   )
 }

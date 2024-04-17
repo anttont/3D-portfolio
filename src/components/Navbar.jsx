@@ -12,7 +12,7 @@ const Navbar = () => {
 
   const [active, setActive] = useState("");
   const [toggle, setToggle] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  
 
   const handleLanguageChange = (newLang) => {
     changeLanguage(newLang);
@@ -21,28 +21,13 @@ const Navbar = () => {
   const currentFlag = language === 'fi' ? fi : en;
   const navLinks = language === 'fi' ? navLinksFI : navLinksEN
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      if (scrollTop > 100) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   return (
     <nav
       className={`${
         styles.paddingX
-      } w-full flex items-center py-5 fixed top-0 z-20 ${
-        scrolled ? "bg-black" : "bg-transparent"
-      }`}
+      } w-full flex items-center py-5 fixed top-0 z-20 
+       bg-black `}
     >
       <div className='w-full flex justify-between items-center max-w-7xl mx-auto'>
         <Link
