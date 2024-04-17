@@ -56,11 +56,11 @@ const Navbar = () => {
           <img src={logo} alt='logo' className='w-9 h-9 object-contain' />
           <p className='text-white text-[18px] font-bold cursor-pointer flex '>
             Anttoni &nbsp;
-            <span className='sm:block hidden md:block '> | Tornikoski </span>
+            <span className='lg:block hidden'> | Tornikoski </span>
           </p>
         </Link>
 
-        <ul className='list-none hidden sm:flex flex-row gap-10 '>
+        <ul className='list-none hidden lg:flex flex-row gap-10 '>
         
           {navLinks.map((nav) => (
             <li
@@ -82,7 +82,7 @@ const Navbar = () => {
           </div>
         </ul>
 
-        <div className='sm:hidden flex flex-1 justify-end items-center'>
+        <div className='lg:hidden flex flex-1 justify-end items-center'>
           <img
             src={toggle ? close : menu}
             alt='menu'
