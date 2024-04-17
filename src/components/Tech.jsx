@@ -47,12 +47,18 @@ const Tech = () => {
     
 
     <div className='pt-6 flex flex-row flex-wrap justify-center gap-10'>
-      {technologies.map((technology) => (
-        <div className='w-28 h-28' key={technology.name}>
-            {isMobile ? <></> : <BallCanvas icon={technology.icon}></BallCanvas> } <p className={`flex flex-row flex-wrap justify-center`}>{technology.name}</p>
-        </div>
-      ))}
+  {technologies.map((technology) => (
+    <div className='w-28 h-28 flex flex-col items-center justify-center' key={technology.name}>
+      {isMobile ? (
+        <img src={technology.icon} className='object-contain h-20 w-20'></img>
+      ) : (
+        <BallCanvas icon={technology.icon}></BallCanvas>
+      )}
+      <p className='text-center'>{technology.name}</p>
     </div>
+  ))}
+</div>
+
 
    
 
