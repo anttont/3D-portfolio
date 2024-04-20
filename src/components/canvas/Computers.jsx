@@ -79,7 +79,7 @@ const ComputersCanvas = () => {
   return (
     
     <Canvas 
-      camera={{ position: [0, 0, 0], fov: 10 }}
+      camera={{ position: [0, 0, 0], fov: 10}}
       gl={{ preserveDrawingBuffer: true}}
        >
       <Suspense fallback={<CanvasLoader />}>
