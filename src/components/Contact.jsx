@@ -100,7 +100,7 @@ const handleSubmit = (e) => {
     
     <div className='xl:mt-12 xl:flex-row flex-col-reverse gap-10 overflow-hidden'>
       <motion.div variants={slideIn("left", "tween", 0.2, 1)} className='w-full green-pink-gradient p-[2px]  p-8 rounded-2xl'>
-        <div className='bg-black rounded-[20px] py-5 px-12 min-h-[280px] flex flex-col'><p className={`${styles.sectionHeadText} text-white`}>{language === 'en' ? 'Get in touch' : 'Ota yhteyttä'}</p>
+        <div className='bg-[#0a0a0a] rounded-[20px] py-5 px-12 min-h-[280px] flex flex-col'><p className={`${styles.sectionHeadText} text-white`}>{language === 'en' ? 'Get in touch' : 'Ota yhteyttä'}</p>
         <h3 className={`${styles.sectionSubText} text-white`}>{language === 'en' ? 'Contact' : ' Lähetä viesti'}</h3>
 
         <form 
@@ -115,7 +115,7 @@ const handleSubmit = (e) => {
           value={form.name}
           onChange={handleChange}
           placeholder={language === 'en' ? 'Whats your name?' : 'Mikä on nimesi?'}
-          className='bg-tertiary py-4 px-6 
+          className='bg-[#131314] py-4 px-6 
           placeholder:text-secondary text-white rounded-lg
            outlined-none border-none font-medium'/>
 
@@ -127,7 +127,7 @@ const handleSubmit = (e) => {
           value={form.email}
           onChange={handleChange}
           placeholder={language === 'en' ? 'Whats your email' : 'Mikä on sähköpostiosoitteesi?'}
-          className='bg-tertiary py-4 px-6 
+          className='bg-[#131314] py-4 px-6 
           placeholder:text-secondary text-white rounded-lg
            outlined-none border-none font-medium'/>
            
@@ -138,13 +138,13 @@ const handleSubmit = (e) => {
           value={form.message}
           onChange={handleChange}
           placeholder={language === 'en' ? 'What do you want to say?' : 'Mitä haluat sanoa?'}
-          className='bg-tertiary py-4 px-6 
+          className='bg-[#131314] py-4 px-6 
           placeholder:text-secondary text-white rounded-lg
            outlined-none border-none font-medium'/>
            
           </label>
 
-          <button type="submit" className='bg-tertiary py-3 px-8 outline-none w-fit text-fit
+          <button type="submit" className='bg-[#131314] py-3 px-8 outline-none w-fit text-fit
            font-bold shadow-md shadow-primary rounded-xl'>{loading ? 'Sending...': 'Send' }</button>
         </form></div>
         
