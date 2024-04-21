@@ -1,59 +1,55 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { styles } from '../styles';
-import { ComputersCanvas } from './canvas';
+import React, { useEffect, useState } from 'react';
 import { useLanguage } from '../LanguageContext';
-import { About, Contact, Experience, Feedbacks, Navbar, Tech, Works, StarsCanvas } from '../components';
+import { ComputersCanvas, StarsCanvas } from './'; // Assuming these components are exported from separate files
 
 const Hero = () => {
   const { language } = useLanguage(); // Get the selected language from the context
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    // Add a listener for changes to the screen size
+    const mediaQuery = window.matchMedia("(max-width: 1090px)");
+
+    // Set the initial value of the `isMobile` state variable
+    setIsMobile(mediaQuery.matches);
+
+    // Define a callback function to handle changes to the media query
+    const handleMediaQueryChange = (event) => {
+      setIsMobile(event.matches);
+    };
+
+    // Add the callback function as a listener for changes to the media query
+    mediaQuery.addEventListener("change", handleMediaQueryChange);
+
+    // Remove the listener when the component is unmounted
+    return () => {
+      mediaQuery.removeEventListener("change", handleMediaQueryChange);
+    };
+  }, []);
 
   return (
     <section className="relative w-full h-screen mx-auto">
-      {/* Render Canvas component only for larger screens */}
+      
+      <div className="absolute top-1/4 left-1/4 md:left-0 transform md:translate-x-20 z-10 text-center md:text-left">
+        <h1 className="font-bold text-4xl sm:text-xl md:text-2xl lg:text-3xl xl:text-8xl">
+        {isMobile
+            ? language === 'en'
+              ? 'Hi, my name is Anttoni'
+              : 'Hei, nimeni on Anttoni'
+            : language === 'en'
+              ? 'Hi, my name is'
+              : 'Hei, nimeni on'}
+          </h1>
+      </div>
+
       <ComputersCanvas />
+      <StarsCanvas />
 
-      {/* Text on the left-top of the screen */}
-      <div className="absolute top-20 left-20 sm:left md:left-20 lg:left-32 transform translate-x-10 translate-y-10 text-white text-center z-11">
-        <div>
-          <h1 className={`text-white ${styles.heroHeadText}`}>Hei, nimeni on</h1>
-          <p className="text-lg"></p>
-        </div>
-      </div>
-
-      {/* Render Canvas component only for smaller screens */}
-      <div className="absolute top-0 left-0 w-full h-full flex justify-center items-center">
-        <StarsCanvas />
-      </div>
-
-      {/* Text on the right-center of the screen */}
-      <div className="absolute top-1/2 right-20 md:right-20 lg:right-15 transform translate-y-[-40%] text-white text-center z-10">
-        <div>
-          <h1 className="text-4xl font-bold mb-8">Olen ohjelmisto-kehittäjä</h1>
-          <p className="text-lg"></p>
-        </div>
-      </div>
-
-      {/* Bottom arrow link */}
-      <div className="absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center">
-        <a href="#about">
-          <div className="w-[35px] h-[64px] rounded-3xl border-4 border-secondary flex justify-center items-start p-2">
-            <motion.div
-              animate={{
-                y: [0, 24, 0],
-              }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                repeatType: 'loop',
-              }}
-              className="w-3 h-3 rounded-full bg-secondary mb-1"
-            />
-          </div>
-        </a>
-      </div>
     </section>
   );
 };
 
 export default Hero;
+
+
+
+

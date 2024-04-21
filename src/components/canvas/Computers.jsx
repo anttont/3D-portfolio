@@ -10,8 +10,8 @@ const VideoText = ({ isMobile, ...props }) => {
   const [video] = useState(() => Object.assign(document.createElement('video'), { src: './VideoText/Portfolio.mp4', crossOrigin: 'Anonymous', loop: true, muted: true }))
   useEffect(() => void video.play(), [video])
   return (
-    <Text position={isMobile ? [0, 0.15, 0] : [-0.7, 0.45, 0]} scale={isMobile ? 0.3 : 1} font="./VideoText/Inter-Bold.woff" letterSpacing={-0.06} {...props}>
-      Anttoni
+    <Text position={isMobile ? [0, 0.45, 0] : [-0.45, 0.45, 0]}  font="./VideoText/Inter-Bold.woff" letterSpacing={-0.06} {...props}>
+      {isMobile ? "AT" : "Anttoni"}
       <meshBasicMaterial toneMapped={false}>
         <videoTexture attach="map" args={[video]} encoding={THREE.sRGBEncoding} />
       </meshBasicMaterial>
@@ -19,21 +19,6 @@ const VideoText = ({ isMobile, ...props }) => {
   )
 }
 
-const Computers = ({ isMobile }) => {
-  const computer = useGLTF("./laptop/scene.gltf");
-  
-  return (
-    <mesh>
-      <pointLight intensity={3.5} position={isMobile ? [-0.2, 1, 1] : [2, 3, 2]} />
-      <primitive
-        object={computer.scene}
-        scale={isMobile ? 1.5 : 2}
-        position={isMobile ? [-0.3, 0.009, 1.4] : [1.5, 0.009, 1]}
-        rotation={[0, -1, 0]}
-      />
-    </mesh>
-  );
-};
 
 const Ground = () => {
   const [floor, normal] = useTexture(['./VideoText/SurfaceImperfections003_1K_var1.jpg', './VideoText/SurfaceImperfections003_1K_Normal.jpg'])
