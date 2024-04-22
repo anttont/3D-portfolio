@@ -145,7 +145,16 @@ const handleSubmit = (e) => {
           </label>
 
           <button type="submit" className='bg-[#131314] py-3 px-8 outline-none w-fit text-fit
-           font-bold shadow-md shadow-primary rounded-xl'>{loading ? 'Sending...': 'Send' }</button>
+           font-bold shadow-md shadow-primary rounded-xl'>
+            {loading 
+              ? language === 'en'
+                ? 'Sending...'
+                : 'Lähetetään...'
+              : language === 'en'
+                ? 'Send'
+                : 'Lähetä'
+             }
+            </button>
         </form></div>
         
       </motion.div>
