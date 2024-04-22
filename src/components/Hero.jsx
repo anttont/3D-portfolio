@@ -30,7 +30,7 @@ const Hero = () => {
     <section className="relative w-full h-screen mx-auto">
       
       <div className="absolute top-1/4 left-1/4 md:left-0 transform md:translate-x-20 z-10 text-center md:text-left">
-        <h1 className="font-bold text-4xl sm:text-2xl md:text-3xl lg:text-5xl xl:text-8xl">
+        <h1 className="font-bold text-4xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-8xl">
         {isMobile
             ? language === 'en'
               ? 'Hi, my name is Anttoni'
