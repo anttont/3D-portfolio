@@ -10,7 +10,7 @@ const VideoText = ({ isMobile, ...props }) => {
   const [video] = useState(() => Object.assign(document.createElement('video'), { src: './VideoText/Portfolio.mp4', crossOrigin: 'Anonymous', loop: true, muted: true }))
   useEffect(() => void video.play(), [video])
   return (
-    <Text position={isMobile ? [0, 0.45, 0] : [-0.45, 0.45, 0]}  font="./VideoText/Inter-Bold.woff" letterSpacing={-0.06} {...props}>
+    <Text position={isMobile ? [0, 0.45, 0] : [-0.45, 0.45, 0]}  font="./VideoText/Inter-Bold.woff" letterSpacing={-0.04} {...props}>
       {isMobile ? "AT" : "Anttoni"}
       <meshBasicMaterial toneMapped={false}>
         <videoTexture attach="map" args={[video]} encoding={THREE.sRGBEncoding} />

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 
 import { styles } from "../styles";
@@ -12,6 +12,7 @@ const Navbar = () => {
   const [active, setActive] = useState("");
   const [toggle, setToggle] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const menuRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,9 +24,19 @@ const Navbar = () => {
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setToggle(false);
+      }
+    };
 
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    document.addEventListener("click", handleClickOutside);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      document.removeEventListener("click", handleClickOutside);
+    };
   }, []);
   
 
@@ -83,7 +94,7 @@ const Navbar = () => {
           </div>
         </ul>
 
-        <div className='lg:hidden flex flex-1 justify-end items-center'>
+        <div className='lg:hidden flex flex-1 justify-end items-center' ref={menuRef}>
           <img
             src={toggle ? close : menu}
             alt='menu'

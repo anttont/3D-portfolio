@@ -29,7 +29,8 @@ const Hero = () => {
   return (
     <section className="relative w-full h-screen mx-auto">
       
-      <div className="absolute top-1/4 left-1/4 md:left-0 transform md:translate-x-20 z-10 text-center md:text-left">
+      <div className="absolute top-1/4 left-1/2 transform -translate-x-1/2 sm:left-1/4 sm:-translate-x-10 md:left-0 md:translate-x-20 z-10 text-center md:text-left">
+
         <h1 className="font-bold text-4xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-8xl">
         {isMobile
             ? language === 'en'
