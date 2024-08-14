@@ -28,7 +28,8 @@ import {
     python,
     java,
     konva,
-    threedportfolio
+    threedportfolio,
+    benchmarksignal
   } from "../assets";
   
   export const navLinksEN = [
@@ -247,6 +248,33 @@ import {
       ],
       image: threedportfolio,
       source_code_link: "https://github.com/anttont/3D-portfolio/",
+    },
+    {
+      name: "Signal analyzer",
+      descriptionEN:
+        "A signal analysis tool developed for a master's level university course. While creating the tool, I learned a lot about Python and its libraries such as Pandas, Dask, Matplotlib, NumPy, SciPy, and PyWavelets.",
+        descriptionFI:
+        "Yliopiston maisteritason kurssia varten tehty signaalin analysointi työkalu. Työkalua tehdessä opin paljon pythonista ja sen kirjastoista kuten Pandas, Dask, Matplotlib, NumPy, SciPy, ja PyWavelets.",
+      tags: [
+        {
+          name: "Python",
+          color: "blue-text-gradient",
+        },
+        {
+          name: "Matplotlib",
+          color: "green-text-gradient",
+        },
+        {
+          name: "Pandas",
+          color: "pink-text-gradient",
+        },
+        {
+          name: "Dask",
+          color: "blue-text-gradient",
+        },
+      ],
+      image: benchmarksignal,
+      source_code_link: "https://github.com/anttont/Signal-analyzer/",
     }
     
     

@@ -36,6 +36,7 @@ import carrent from "./carrent.png";
 import jobit from "./jobit.png";
 import tripguide from "./tripguide.png";
 import threedportfolio from "./threedportfolio.png"
+import benchmarksignal from "./Benchmarksignalresults.png"
 
 
 export {
@@ -73,5 +74,6 @@ export {
   python,
   java,
   konva,
-  threedportfolio
+  threedportfolio,
+  benchmarksignal
 };
