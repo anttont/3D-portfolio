@@ -126,7 +126,7 @@ const Contact = () => {
                   {language === 'en' ? 'Get in touch' : 'Ota yhteyttä'}
                 </p>
                 <h3 className={`${styles.sectionSubText} text-white`}>
-                  {language === 'en' ? 'Contact' : ' Lähetä viesti'}
+                  {language === 'en' ? 'You can contact me with this form' : ' Voit ottaa minuun yhteyttä tässä'}
                 </h3>
                 <form
                   ref={formRef}
@@ -140,7 +140,7 @@ const Contact = () => {
                       name="name"
                       value={form.name}
                       onChange={handleChange}
-                      placeholder={language === 'en' ? 'Whats your name?' : 'Mikä on nimesi?'}
+                      placeholder={language === 'en' ? 'What is your name?' : 'Mikä on nimesi?'}
                       className='bg-[#131314] py-4 px-6 placeholder:text-secondary text-white rounded-lg outlined-none border-none font-medium'
                     />
                   </label>
@@ -151,7 +151,7 @@ const Contact = () => {
                       name="email"
                       value={form.email}
                       onChange={handleChange}
-                      placeholder={language === 'en' ? 'Whats your email' : 'Mikä on sähköpostiosoitteesi?'}
+                      placeholder={language === 'en' ? 'What is your email?' : 'Mikä on sähköpostiosoitteesi?'}
                       className='bg-[#131314] py-4 px-6 placeholder:text-secondary text-white rounded-lg outlined-none border-none font-medium'
                     />
                   </label>

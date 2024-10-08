@@ -66,9 +66,6 @@ const Works = () => {
   return (
     <>
        <motion.div variants={textVariant()}>
-        <p className={`${styles.sectionSubText}  text-white`}>
-        {language === 'en' ? 'My projects' : 'Projektini'}
-        </p>
         <h2 className={`${styles.sectionHeadText}  text-white`}>
         {language === 'en' ? 'Projects' : 'Projektit'}
         </h2>

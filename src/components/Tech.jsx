@@ -37,23 +37,22 @@ const Tech = () => {
     
     <div>
       <div>
-      <p className={`${styles.sectionSubText} text-white`}>
-        {language === 'en' ? 'Technology' : 'Teknologia'}
-        </p>
-        <h2 className={`${styles.sectionHeadText} text-white pb-10`}>
-        {language === 'en' ? 'Tools I have used' : 'Käyttämäni työkalut'}
+        <h2 className={`${styles.sectionHeadText} text-white`}>
+        {language === 'en' ? 'Technology I have used' : 'Käyttämäni teknologia'}
         </h2>
+        <p className='mt-1 text-secondary text-[17px] max-w-3xl leading-[30px]'>
+        {language === 'en' ? 'Technology and tools I have utilized in my projects.' : 'Työkaluja ja teknologiaa joita olen käyttänyt projekteissani.'} 
+        </p>
     </div>
     
 
     <div className='pt-6 flex flex-row flex-wrap justify-center gap-10'>
   {technologies.map((technology) => (
     <div className='w-28 h-28 flex flex-col items-center justify-center' key={technology.name}>
-      {isMobile ? (
+     
         <img src={technology.icon} className='object-contain h-20 w-20'></img>
-      ) : (
-        <BallCanvas icon={technology.icon}></BallCanvas>
-      )}
+      
+
       <p className='text-center'>{technology.name}</p>
     </div>
   ))}
