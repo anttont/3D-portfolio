@@ -8,7 +8,7 @@ import { projects } from '../constants'
 import { fadeIn, textVariant } from '../utils/motion'
 import { useLanguage } from '../LanguageContext';
 
-const ProjectCard = ({index, name, descriptionEN, descriptionFI, tags, image, source_code_link}) => {
+const ProjectCard = ({index, name, descriptionEN, descriptionFI, tags, image, source_code_link, website_link}) => {
 
       const { language } = useLanguage(); // Get the selected language from the context
 
@@ -21,7 +21,7 @@ const ProjectCard = ({index, name, descriptionEN, descriptionFI, tags, image, so
           }}
           className="bg-[#0a0a0a] p-5 rounded-2xl sm:w-[360px] w-full"
           >
-            <div className='relative w-full h-[230px]'>
+            <div className='relative w-full h-[230px] cursor-pointer' onClick={() => window.open(website_link, "_blank")}>
               <img 
               src={image}
               alt={name}

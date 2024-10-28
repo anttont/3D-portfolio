@@ -29,7 +29,8 @@ import {
     java,
     konva,
     threedportfolio,
-    benchmarksignal
+    benchmarksignal,
+    karintaksi
   } from "../assets";
   
   export const navLinksEN = [
@@ -234,7 +235,7 @@ import {
         "Halusin opetalla käyttämään ThreeJS kirjastoa, joten portfolion tekeminen sitä käyttäen tuntui sopivalta vaihtoehdolta. Portfoliota tehdessäni opin käyttämään ThreeJS kirjastoa, sekä sain ylimääräistä kokemusta Reactin ja Tailwindin käytöstä.",
       tags: [
         {
-          name: "react",
+          name: "React",
           color: "blue-text-gradient",
         },
         {
@@ -248,6 +249,7 @@ import {
       ],
       image: threedportfolio,
       source_code_link: "https://github.com/anttont/3D-portfolio/",
+      website_link: "https://anttonitornikoski.com"
     },
     {
       name: "Signal analyzer",
@@ -275,6 +277,35 @@ import {
       ],
       image: benchmarksignal,
       source_code_link: "https://github.com/anttont/Signal-analyzer/",
+      website_link: "https://github.com/anttont/Signal-analyzer/"
+    },
+    {
+      name: "Karin taksit",
+      descriptionEN:
+        "A homepage for a taxi business made using React and hosted on Firebase.",
+        descriptionFI:
+        "Kotisivusto taksiyritykselle tehty käyttäen Reactia ja hostattu Firebasessa.",
+      tags: [
+        {
+          name: "Javascript",
+          color: "blue-text-gradient",
+        },
+        {
+          name: "HTML",
+          color: "green-text-gradient",
+        },
+        {
+          name: "CSS",
+          color: "pink-text-gradient",
+        },
+        {
+          name: "React",
+          color: "blue-text-gradient",
+        },
+      ],
+      image: karintaksi,
+      source_code_link: "https://github.com/anttont/TaxiWebsite",
+      website_link: "https://tornikoski.fi"
     }
     
     
