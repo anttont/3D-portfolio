@@ -37,7 +37,7 @@ import jobit from "./jobit.png";
 import tripguide from "./tripguide.png";
 import threedportfolio from "./threedportfolio.png"
 import benchmarksignal from "./Benchmarksignalresults.png"
-import karintaksi from "./Karintaksi.png"
+import karintaksi from "./karintaksi.png"
 
 
 export {
